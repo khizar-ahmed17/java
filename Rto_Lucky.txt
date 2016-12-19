@@ -1,0 +1,37 @@
+
+public class Rto_LuckyNo 
+{
+	public static final String rto_start="1";
+	public static final String rto_final="9999";
+	public static final int rto_lucky=9;
+	public static void main(String[] args)
+	{
+		long start = System.currentTimeMillis();
+		for(int i=Integer.valueOf(rto_start);i<=Integer.valueOf(rto_final);i++)
+		{
+			int sum=fun(i);
+			if(sum>9)
+				sum=fun(sum);
+			if(sum==rto_lucky)
+			{	
+				System.out.println("TN 41 AB "+String.format("%04d",i));
+			}	
+		}
+		long end = System.currentTimeMillis();
+		
+	//	System.out.println("Time taken : "+ (end-start));
+		
+	}
+	private static int fun(int value) {
+		int  sum = 0;
+		System.out.println("value b4 "+value);
+		while(value>0)
+		{
+			sum+=value%10; // last digit of the four digit number
+			value/=10;    // rest 3 digit and the loop continues till the 1st digit
+		}
+		return sum;
+		
+	}
+}
+
